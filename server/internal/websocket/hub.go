@@ -1,7 +1,14 @@
 package websocket
 
+import (
+	"github.com/danybasulto/p2p-signaling/internal"
+)
+
 // Hub mantiene el conjunto de clientes activos y transmite mensajes a los clientes.
 type Hub struct {
+	// Inyectamos la interfaz, no la implementacion concreta (DIP)
+	repo internal.RoomRepository
+	
 	// Clientes registrados.
 	clients map[*Client]bool
 
@@ -15,8 +22,9 @@ type Hub struct {
 	unregister chan *Client
 }
 
-func NewHub() *Hub {
+func NewHub(repo internal.RoomRepository) *Hub {
 	return &Hub{
+		repo: repo, // Guardamos la referencia
 		broadcast:  make(chan []byte),
 		register:   make(chan *Client),
 		unregister: make(chan *Client),
