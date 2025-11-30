@@ -8,6 +8,8 @@
 server/signaling-server
 server/debug
 server/.env
+server/server
+server/server.exe
 
 # --- Client (Node/Next.js) ---
 client/node_modules/
