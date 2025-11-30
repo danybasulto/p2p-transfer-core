@@ -1,0 +1,19 @@
+# --- Global ---
+.DS_Store
+.vscode/
+.idea/
+*.log
+
+# --- Server (Go) ---
+server/signaling-server
+server/debug
+server/.env
+
+# --- Client (Node/Next.js) ---
+client/node_modules/
+client/.next/
+client/out/
+client/build/
+client/.env
+client/.env.local
+client/pnpm-debug.log*
